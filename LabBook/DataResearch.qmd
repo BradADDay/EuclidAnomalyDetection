@@ -15,9 +15,11 @@ EUC_MER_FINAL-MORPH-CAT_TILE102159484-AE979F_20241026T003045.182961Z_00.00.fits
 
 The morphology file contains probabilities for different features, similar to those for the Galaxy zoo project. could be used for a cnn based system??
 
+:::{.callout-note}
 - The FINAL file contains all photometry information in a large table
 - The FINAL-MORPH file contains all morphological measurements 
 - The FINAL-CUTOUTS file contains the corners for the source cutouts
+:::
 
 ## SPE Data Products
 
@@ -32,6 +34,7 @@ EUC_SPE_WIDE-CAT-MOD-102159484_N_20241110T054509.870865Z_00.00.fits
 EUC_SPE_WIDE-CAT-Z-102159484_N_20241110T054253.801351Z_00.00.fits
 ```
 
+:::{.callout-note}
 - The SPE_WIDE-CAT-MOD file contains four tables: 
   1. Catalogue: All spectral lines with: [ID, the central wavelength, the name of the line, the type (absorb or emit)]
   2. Galaxy models: The parameters for a galaxy spectral model for each galaxy candidate
@@ -48,6 +51,7 @@ EUC_SPE_WIDE-CAT-Z-102159484_N_20241110T054253.801351Z_00.00.fits
   3. Up to 5 redshift candidates for galaxy
   4. 1 relative velocity candidate for star
   5. up to 5 redshift candidates for QSO
+:::
 
 ## Classifications from OU-PHZ
 
@@ -59,10 +63,11 @@ EUC_PHZ_STARSED__20241120T003936.665995Z_00.00.fits
 # Classifications
 EUC_PHZ_PHZCAT__20241120T003850.158262Z_00.00.fits
 ```
-
+:::{.callout-note}
 - The EUC_PHZ_STARSED file contains the spectral energy distributions for all objects classified as stars
 - The EUC_PHZ_GALAXYSED file contains the spectral energy distributions for all objects classified as galaxies
 - The EUC_PHZ_PHZCAT file contains the Photometric redshift and probability density function
+:::
 
 ## Mosaic Images
 
