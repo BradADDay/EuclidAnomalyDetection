@@ -1,4 +1,4 @@
-# BradleyDay_DataIntensivePhysics
+# DataIntensivePhysics
 
 This is the repository for my coursework project for Data Intensive Physics (unit code PHYSM0070) during my final year at the University of Bristol.
 
