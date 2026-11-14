@@ -1,4 +1,4 @@
-# DataIntensivePhysics
+# Machine Learning for Anomaly Detection in the Euclid Survey 
 
 This is the repository for my coursework project for Data Intensive Physics (unit code PHYSM0070) during my final year at the University of Bristol.
 
@@ -6,7 +6,7 @@ This is the repository for my coursework project for Data Intensive Physics (uni
 
 This project is working on using machine learning to identify anomalies in the Euclid Q1 dataset.
 
-Project notes were written with Quarto and can be found [here](https://bradadday.github.io/DataIntensivePhysics/).
+Project notes have been kept as a quarto book and can be made available upon request. They have not been uploaded here for academic integrity.
 
 ## Credits
 
