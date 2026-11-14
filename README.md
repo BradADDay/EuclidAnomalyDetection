@@ -4,7 +4,9 @@ This is the repository for my coursework project for Data Intensive Physics (uni
 
 ## Notes
 
-This project is working on using machine learning to identify anomalies in the Euclid Q1 dataset. 
+This project is working on using machine learning to identify anomalies in the Euclid Q1 dataset.
+
+Project notes were written with Quarto and can be found [here](https://bradadday.github.io/DataIntensivePhysics/).
 
 ## Credits
 
