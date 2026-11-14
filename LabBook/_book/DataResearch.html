@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>1&nbsp; Data Layout &amp; Specifics – Data Intensive Physics - Project Notes</title>
+<title>1&nbsp; The Project Data – Data Intensive Physics - Project Notes</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -33,7 +33,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./references.html" rel="next">
+<link href="./AnomalyDetectionResearch.html" rel="next">
 <link href="./index.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -49,6 +49,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/bootstrap/bootstrap-425553c36040c1099010492eb981ac19.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="site_libs/bootstrap/bootstrap-dark-f54aaf1fc312c7daf8794a58702dfd11.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <link href="site_libs/bootstrap/bootstrap-425553c36040c1099010492eb981ac19.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -263,7 +266,7 @@ window.MathJax = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./DataResearch.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Data Layout &amp; Specifics</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./DataResearch.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">The Project Data</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -301,7 +304,13 @@ window.MathJax = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./DataResearch.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Data Layout &amp; Specifics</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">The Project Data</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./AnomalyDetectionResearch.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Research on ML Anomaly Detection</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -320,10 +329,17 @@ window.MathJax = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#mer-data-products" id="toc-mer-data-products" class="nav-link active" data-scroll-target="#mer-data-products"><span class="header-section-number">1.1</span> MER Data Products</a></li>
-  <li><a href="#spe-data-products" id="toc-spe-data-products" class="nav-link" data-scroll-target="#spe-data-products"><span class="header-section-number">1.2</span> SPE Data Products</a></li>
-  <li><a href="#classifications-from-ou-phz" id="toc-classifications-from-ou-phz" class="nav-link" data-scroll-target="#classifications-from-ou-phz"><span class="header-section-number">1.3</span> Classifications from OU-PHZ</a></li>
-  <li><a href="#mosaic-images" id="toc-mosaic-images" class="nav-link" data-scroll-target="#mosaic-images"><span class="header-section-number">1.4</span> Mosaic Images</a></li>
+  <li><a href="#data-layout-specifics" id="toc-data-layout-specifics" class="nav-link active" data-scroll-target="#data-layout-specifics"><span class="header-section-number">1.1</span> Data Layout &amp; Specifics</a>
+  <ul class="collapse">
+  <li><a href="#mer-data-products" id="toc-mer-data-products" class="nav-link" data-scroll-target="#mer-data-products"><span class="header-section-number">1.1.1</span> MER Data Products</a></li>
+  <li><a href="#spe-data-products" id="toc-spe-data-products" class="nav-link" data-scroll-target="#spe-data-products"><span class="header-section-number">1.1.2</span> SPE Data Products</a></li>
+  <li><a href="#classifications-from-ou-phz" id="toc-classifications-from-ou-phz" class="nav-link" data-scroll-target="#classifications-from-ou-phz"><span class="header-section-number">1.1.3</span> Classifications from OU-PHZ</a></li>
+  <li><a href="#mosaic-images" id="toc-mosaic-images" class="nav-link" data-scroll-target="#mosaic-images"><span class="header-section-number">1.1.4</span> Mosaic Images</a></li>
+  </ul></li>
+  <li><a href="#discoveries-within-the-data-structure" id="toc-discoveries-within-the-data-structure" class="nav-link" data-scroll-target="#discoveries-within-the-data-structure"><span class="header-section-number">1.2</span> Discoveries Within the Data Structure</a>
+  <ul class="collapse">
+  <li><a href="#spectral-energy-distributions" id="toc-spectral-energy-distributions" class="nav-link" data-scroll-target="#spectral-energy-distributions"><span class="header-section-number">1.2.1</span> Spectral Energy Distributions</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -333,7 +349,7 @@ window.MathJax = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Data Layout &amp; Specifics</span></h1>
+<h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">The Project Data</span></h1>
 </div>
 
 
@@ -350,8 +366,12 @@ window.MathJax = {
 </header>
 
 
-<section id="mer-data-products" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="mer-data-products"><span class="header-section-number">1.1</span> MER Data Products</h2>
+<p>The sample data provided was tile ID 102159484 from the EUCLID survey.</p>
+<p>Initial explorations were conducted in python and the findings are listed below.</p>
+<section id="data-layout-specifics" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="data-layout-specifics"><span class="header-section-number">1.1</span> Data Layout &amp; Specifics</h2>
+<section id="mer-data-products" class="level3" data-number="1.1.1">
+<h3 data-number="1.1.1" class="anchored" data-anchor-id="mer-data-products"><span class="header-section-number">1.1.1</span> MER Data Products</h3>
 <pre><code># Photometric measurements
 EUC_MER_FINAL-CAT_TILE102159484-EF6D85_20241026T003047.133877Z_00.00.fits
 
@@ -379,8 +399,8 @@ Note
 </div>
 </div>
 </section>
-<section id="spe-data-products" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="spe-data-products"><span class="header-section-number">1.2</span> SPE Data Products</h2>
+<section id="spe-data-products" class="level3" data-number="1.1.2">
+<h3 data-number="1.1.2" class="anchored" data-anchor-id="spe-data-products"><span class="header-section-number">1.1.2</span> SPE Data Products</h3>
 <pre><code># Spectral line measurements (line name, value, etc for different objects)
 EUC_SPE_WIDE-CAT-LIN-102159484_N_20241110T054343.637093Z_00.00.fits
 
@@ -426,8 +446,8 @@ Note
 </div>
 </div>
 </section>
-<section id="classifications-from-ou-phz" class="level2" data-number="1.3">
-<h2 data-number="1.3" class="anchored" data-anchor-id="classifications-from-ou-phz"><span class="header-section-number">1.3</span> Classifications from OU-PHZ</h2>
+<section id="classifications-from-ou-phz" class="level3" data-number="1.1.3">
+<h3 data-number="1.1.3" class="anchored" data-anchor-id="classifications-from-ou-phz"><span class="header-section-number">1.1.3</span> Classifications from OU-PHZ</h3>
 <pre><code># Spectral Energy Distributions
 EUC_PHZ_GALAXYSED__20241120T003959.957136Z_00.00.fits
 EUC_PHZ_STARSED__20241120T003936.665995Z_00.00.fits
@@ -452,15 +472,35 @@ Note
 </div>
 </div>
 </section>
-<section id="mosaic-images" class="level2" data-number="1.4">
-<h2 data-number="1.4" class="anchored" data-anchor-id="mosaic-images"><span class="header-section-number">1.4</span> Mosaic Images</h2>
+<section id="mosaic-images" class="level3" data-number="1.1.4">
+<h3 data-number="1.1.4" class="anchored" data-anchor-id="mosaic-images"><span class="header-section-number">1.1.4</span> Mosaic Images</h3>
 <pre><code># Mosaic images from different filters
 EUC_MER_BGSUB-MOSAIC-NIR-H_TILE102159484-39CF67_20241024T214009.099906Z_00.00.fits
 EUC_MER_BGSUB-MOSAIC-NIR-J_TILE102159484-C026DB_20241024T213141.416722Z_00.00.fits
 EUC_MER_BGSUB-MOSAIC-NIR-Y_TILE102159484-A9CCA7_20241024T221227.957725Z_00.00.fits
 EUC_MER_BGSUB-MOSAIC-VIS_TILE102159484-116033_20241025T015934.885975Z_00.00.fits</code></pre>
+</section>
+</section>
+<section id="discoveries-within-the-data-structure" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="discoveries-within-the-data-structure"><span class="header-section-number">1.2</span> Discoveries Within the Data Structure</h2>
+<section id="spectral-energy-distributions" class="level3" data-number="1.2.1">
+<h3 data-number="1.2.1" class="anchored" data-anchor-id="spectral-energy-distributions"><span class="header-section-number">1.2.1</span> Spectral Energy Distributions</h3>
+<p>The <code>STARSED</code> and <code>GALAXYSED</code> files contain spectral energy distributions of the objects if the object can be classified as either object. Of the 111422 objects:</p>
+<ul>
+<li>1963 have a stellar SED (1.8% of total)</li>
+<li>57919 have a galactic SED (52.0% of total)</li>
+<li>1963 have both a stellar and galactic SED</li>
+</ul>
+<p>An interesting feature of this is that every object that has an SED for a stellar classification also has an SED for a galactic classification. An example of one such object is shown below.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/SEDCompare.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="The galactic (black) and stellar (red) spectral energy distributions for object ID 2667113756662457096."><img src="images/SEDCompare.png" class="img-fluid figure-img" alt="The galactic (black) and stellar (red) spectral energy distributions for object ID 2667113756662457096."></a></p>
+<figcaption>The galactic (black) and stellar (red) spectral energy distributions for object ID 2667113756662457096.</figcaption>
+</figure>
+</div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -884,12 +924,44 @@ EUC_MER_BGSUB-MOSAIC-VIS_TILE102159484-116033_20241025T015934.885975Z_00.00.fits
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./references.html" class="pagination-link" aria-label="References">
-        <span class="nav-page-text">References</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./AnomalyDetectionResearch.html" class="pagination-link" aria-label="Research on ML Anomaly Detection">
+        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Research on ML Anomaly Detection</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
 
 
 

@@ -1,6 +1,12 @@
-# Data Layout & Specifics
+# The Project Data
 
-## MER Data Products
+The sample data provided was tile ID 102159484 from the EUCLID survey.
+
+Initial explorations were conducted in python and the findings are listed below.
+
+## Data Layout & Specifics
+
+### MER Data Products
 
 ```
 # Photometric measurements
@@ -21,7 +27,7 @@ The morphology file contains probabilities for different features, similar to th
 - The FINAL-CUTOUTS file contains the corners for the source cutouts
 :::
 
-## SPE Data Products
+### SPE Data Products
 
 ```
 # Spectral line measurements (line name, value, etc for different objects)
@@ -53,7 +59,7 @@ EUC_SPE_WIDE-CAT-Z-102159484_N_20241110T054253.801351Z_00.00.fits
   5. up to 5 redshift candidates for QSO
 :::
 
-## Classifications from OU-PHZ
+### Classifications from OU-PHZ
 
 ```
 # Spectral Energy Distributions
@@ -69,7 +75,7 @@ EUC_PHZ_PHZCAT__20241120T003850.158262Z_00.00.fits
 - The EUC_PHZ_PHZCAT file contains the Photometric redshift and probability density function
 :::
 
-## Mosaic Images
+### Mosaic Images
 
 ```
 # Mosaic images from different filters
@@ -79,4 +85,16 @@ EUC_MER_BGSUB-MOSAIC-NIR-Y_TILE102159484-A9CCA7_20241024T221227.957725Z_00.00.fi
 EUC_MER_BGSUB-MOSAIC-VIS_TILE102159484-116033_20241025T015934.885975Z_00.00.fits
 ```
 
+## Discoveries Within the Data Structure
 
+### Spectral Energy Distributions
+
+The `STARSED` and `GALAXYSED` files contain spectral energy distributions of the objects if the object can be classified as either object. Of the 111422 objects:
+
+- 1963 have a stellar SED (1.8% of total)
+- 57919 have a galactic SED (52.0% of total)
+- 1963 have both a stellar and galactic SED
+
+An interesting feature of this is that every object that has an SED for a stellar classification also has an SED for a galactic classification. An example of one such object is shown below.
+
+![The galactic (black) and stellar (red) spectral energy distributions for object ID 2667113756662457096.](images/SEDCompare.png)

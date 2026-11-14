@@ -1,5 +1,6 @@
 project:
   type: book
+  output-dir: ../docs
 
 bookdown::gitbook:
    
@@ -11,6 +12,8 @@ book:
   chapters:
     - index.qmd
     - DataResearch.qmd
+    - AnomalyDetectionResearch.qmd
+    - ProjectPlan.qmd
     - references.qmd
 
 bibliography: references.bib

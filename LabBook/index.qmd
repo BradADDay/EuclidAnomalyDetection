@@ -1,5 +1,9 @@
 # Preface {.unnumbered}
 
+This is the repository for my coursework project for Data Intensive Physics (unit code PHYSM0070) during my final year at the University of Bristol.
+
+This project is working on using machine learning to identify anomalies in the Euclid Q1 dataset. This work has made use of the Euclid Q1 data from the *Euclid* mission of the European Space Agency (ESA), 2025, https://doi.org/10.57780/esa-2853f3b @aussel_euclid_2026 @mccracken_euclid_2026 @polenta_euclid_2026 @romelli_euclid_2026 @tucci_euclid_2026 @copin_euclid_2026 @brun_euclid_2026
+
 This is a Quarto book.
 
 To learn more about Quarto books visit <https://quarto.org/docs/books>.

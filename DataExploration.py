@@ -1,6 +1,7 @@
 import matplotlib.pyplot as plt
-from matplotlib.colors import LogNorm
+from matplotlib.colors import LogNorm, Normalize, CenteredNorm
 import numpy as np
+from os.path import join
 
 from astropy.io import fits
 from astropy.nddata import Cutout2D
@@ -55,22 +56,88 @@ DataDict = {
 }
 
 # Which image to use
-filt = "NIRY"
+filt = "NIRH"
+
+DATADIR = "Repository/SampleData/"
 
 # Getting the cutouts and image
-hdulCutouts = fits.open(f"/home/brad/Downloads/DIP_2026/{DataDict["CUTOUT"]}")
-hdulImage  = fits.open(f"/home/brad/Downloads/DIP_2026/{DataDict[filt]}")
+hdulCutouts = fits.open(join(DATADIR, f"{DataDict["CUTOUT"]}"))
+hdulImage  = fits.open(join(DATADIR, f"{DataDict[filt]}"))
+# hdulMorph = fits.open(join(DATADIR, f"{DataDict["MORPH"]}"))
+hdulGSED = fits.open(join(DATADIR, f"{DataDict["GSED"]}"))
+hdulSSED = fits.open(join(DATADIR, f"{DataDict["SSED"]}"))
 
-""" # Looping through the cutouts
-for cutout in hdulCutouts[1].data[0:100]:
+# Looping through the cutouts
+""" for cutout in hdulCutouts[1].data[0:100]:
 	
 	fig, ax = ShowCutout(hdulImage, cutout)
 	plt.show() """
 
-image = CropImage(hdulImage, (266.7300231, 66.2555226), 3/120, 3/120)
+def GetSED(hdul, idx, EBounds=(4500, 10000), EStep=100):
 
-fig, ax = plt.subplots(subplot_kw=dict(projection=image.wcs))
-ax.imshow(image.data, cmap="plasma", norm=LogNorm())
-ax.set_xlabel("Right Ascension")
-ax.set_ylabel("Declination")
+	# Creating empty arrays
+	flux = np.empty(55)
+	fluxErr = np.empty(55)
+	E = np.empty(55)
+	EErr = np.ones(55) * EStep/2
+
+	for i, energy in enumerate(range(EBounds[0], EBounds[1], EStep)):
+		flux[i] = hdul[1].data[idx][f"FLUX_{energy}_{energy+EStep}"]
+		fluxErr[i] = hdul[1].data[idx][f"FLUXERR_{energy}_{energy+EStep}"]
+		E[i] = energy + EStep/2
+
+	return E, EErr, flux, fluxErr
+
+
+E, EErr, flux, fluxErr = GetSED(hdulGSED, 10)
+numnan=0
+i=0
+
+GData = hdulGSED[1].data["FLUX_4500_4600"]
+SData = hdulSSED[1].data["FLUX_4500_4600"]
+count = np.count_nonzero((np.invert(np.isnan(GData)) & np.invert(np.isnan(SData))))
+print(count)
+idxs = np.arange(0, len(GData))
+
+print(idxs[(np.invert(np.isnan(GData)) & np.invert(np.isnan(SData)))])
+idxs = idxs[(np.invert(np.isnan(GData)) & np.invert(np.isnan(SData)))]
+
+# for i in idxs:
+	
+# 	fig, ax = plt.subplots()
+# 	E, EErr, flux, fluxErr = GetSED(hdulGSED, i)
+# 	ax.plot(E, flux, label="Galaxy")
+# 	E, EErr, flux, fluxErr = GetSED(hdulSSED, i)
+# 	ax.plot(E, flux, label="Star")
+# 	ax.set_xlabel("Wavelength (Angstroms)")
+# 	ax.set_ylabel("Flux")
+# 	ax.legend()
+
+# 	fig.savefig(f"WeirdSEDS/{i}.png")
+# 	plt.close()
+
+print(len(SData) - np.count_nonzero(np.isnan(SData)))
+
+i=247
+
+fig, ax = plt.subplots()
+E, EErr, flux, fluxErr = GetSED(hdulGSED, i)
+ax.errorbar(
+	E, flux, fluxErr, EErr, 
+	label="Galaxy", fmt=".", 
+	ms=1, c="k", capsize=2, elinewidth=0.5
+)
+E, EErr, flux, fluxErr = GetSED(hdulSSED, i)
+ax.errorbar(
+	E, flux, fluxErr, EErr, 
+	label="Star", fmt=".", 
+	ms=1, c="r", capsize=2, elinewidth=0.5
+)
+ax.set_xlabel("Wavelength (Angstroms)")
+ax.set_ylabel("Flux")
+ax.legend()
+
+# plt.show()
+
+ShowCutout(hdulImage, hdulCutouts[1].data[74])
 plt.show()
