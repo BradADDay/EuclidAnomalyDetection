@@ -4,7 +4,7 @@ In this directory there are two files: `get_data.sh` and `slurm_get_data.sh`. Th
 
 `get_data.sh` takes a single argument and can be run as
 ```
-Usage: $0 [-f FILENAME]
+Usage: get_data.sh [-f FILENAME]
 
     Options:
 	-f, --filename: The input file containing a list of datafiles to download
