@@ -8,6 +8,16 @@ This project is working on using machine learning to identify anomalies in the E
 
 Project notes have been kept as a quarto book and can be made available upon request. They have not been uploaded here for academic integrity.
 
+## Repository Structure
+
+The `DataExploration` directory contains code used to explore the sample data provided by the client.
+
+The `DataScripts` directory contains code for downloading data from the Euclid archive, with usage instructions [here](DataScripts/usage.md).
+
+`Resources` contains resources collected along the project including meeting minutes and briefs.
+
+`TestCode` is currently a junk directory containing old or disused code.
+
 ## Credits
 
 This work has made use of the Euclid Q1 data from the *Euclid* mission of the European Space Agency (ESA), 2025, https://doi.org/10.57780/esa-2853f3b
