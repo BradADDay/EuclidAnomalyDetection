@@ -10,13 +10,10 @@ Project notes have been kept as a quarto book and can be made available upon req
 
 ## Repository Structure
 
-The `DataExploration` directory contains code used to explore the sample data provided by the client.
-
-The `DataScripts` directory contains code for downloading data from the Euclid archive, with usage instructions [here](DataScripts/usage.md).
-
-`Resources` contains resources collected along the project including meeting minutes and briefs.
-
-`TestCode` is currently a junk directory containing old or disused code.
+- `DataExploration` contains code used to explore the sample data provided by the client.
+- `DataScripts` contains code for downloading data from the Euclid archive, with usage instructions [here](DataScripts/usage.md).
+- `Resources` contains resources collected along the project including meeting minutes and briefs.
+- `TestCode` is currently a junk directory containing old or disused code.
 
 ## Credits
 
